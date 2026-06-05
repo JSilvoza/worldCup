@@ -214,9 +214,33 @@ main { flex: 1; padding: 2rem 1.5rem; max-width: 1280px; margin: 0 auto; width: 
     border-bottom: 1px solid var(--border);
     padding: 1rem 1.5rem;
     flex-direction: column; gap: .25rem;
+    z-index: 99;
   }
   .main-nav.open { display: flex; }
-  .main-nav a { padding: .7rem 1rem; width: 100%; border-radius: var(--radius); }
+  .main-nav a { padding: .75rem 1rem; width: 100%; border-radius: var(--radius); font-size: .9rem; }
   .nav-toggle { display: flex; }
   .page-title  { font-size: 2rem; }
+}
+
+@media (max-width: 540px) {
+  .container { padding: 0 1rem; }
+  main { padding: 1.25rem 1rem; }
+  .page-title { font-size: 1.75rem; }
+  .page-subtitle { font-size: .78rem; }
+
+  /* Tabs — horizontal scroll instead of wrapping */
+  .tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: .2rem;
+    padding-bottom: .6rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab-btn { white-space: nowrap; flex-shrink: 0; min-height: 36px; }
 }

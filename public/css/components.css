@@ -477,3 +477,68 @@
   .score-display  { font-size: 1.6rem; }
   .stat-card-value { font-size: 2rem; }
 }
+
+@media (max-width: 540px) {
+  /* Hide secondary standings columns — show Pos, Team, P, GD, Pts only */
+  .mob-hide { display: none !important; }
+
+  /* Hero */
+  .hero-banner h1 { font-size: 2.6rem; }
+  .hero-banner    { padding: 2.5rem 1rem 2.25rem; }
+  .hero-banner::before { background-size: 32px 32px; }
+
+  /* Countdown — tighten so it fits 320px screens */
+  .countdown-units  { gap: .2rem; }
+  .countdown-unit   { min-width: 2.6rem; padding: .4rem .5rem; }
+  .countdown-val    { font-size: 1.55rem; }
+  .countdown-sep    { font-size: 1.3rem; padding-bottom: .45rem; }
+  .countdown-name   { font-size: .52rem; }
+
+  /* Stat cards */
+  .stats-row        { gap: .75rem; }
+  .stat-card        { padding: 1rem; }
+  .stat-card-value  { font-size: 1.75rem; }
+
+  /* Match card */
+  .match-card       { padding: .9rem; }
+  .team-name        { font-size: .76rem; }
+  .score-display    { font-size: 1.45rem; min-width: 64px; }
+
+  /* Standings table font */
+  .standings-table  { font-size: .78rem; }
+  .standings-table th,
+  .standings-table td { padding: .5rem .5rem; }
+  .team-cell span   { font-size: .78rem; }
+
+  /* Group card header */
+  .group-subtitle   { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
+
+  /* Filter bars stack vertically */
+  .filter-bar       { flex-direction: column; }
+  .filter-select,
+  .filter-input     { width: 100%; }
+
+  /* Team hero */
+  .team-hero        { padding: 1.5rem 1rem; }
+  .team-hero-info h1 { font-size: 1.9rem; }
+
+  /* Player grid tighter */
+  .players-grid     { grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: .5rem; }
+
+  /* Bracket scroll hint */
+  .bracket-wrapper::after {
+    content: '← scroll →';
+    display: block;
+    text-align: center;
+    font-size: .65rem;
+    color: var(--text-dim);
+    letter-spacing: .08em;
+    margin-top: .5rem;
+  }
+
+  /* Quick links */
+  .quick-link       { padding: .85rem 1rem; }
+
+  /* Section titles */
+  .section-title    { font-size: .92rem; }
+}

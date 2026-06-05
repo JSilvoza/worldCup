@@ -10,8 +10,10 @@ export async function renderGroups(el) {
     <table class="standings-table">
       <thead><tr>
         <th colspan="2">Team</th>
-        <th class="num">P</th><th class="num">W</th><th class="num">D</th><th class="num">L</th>
-        <th class="num">GF</th><th class="num">GA</th><th class="num">GD</th><th class="num">Pts</th>
+        <th class="num">P</th>
+        <th class="num mob-hide">W</th><th class="num mob-hide">D</th><th class="num mob-hide">L</th>
+        <th class="num mob-hide">GF</th><th class="num mob-hide">GA</th>
+        <th class="num">GD</th><th class="num">Pts</th>
       </tr></thead>
       <tbody>
         ${standings.map((t, i) => `
@@ -24,11 +26,11 @@ export async function renderGroups(el) {
             </div>
           </td>
           <td class="num">${t.played}</td>
-          <td class="num">${t.won}</td>
-          <td class="num">${t.drawn}</td>
-          <td class="num">${t.lost}</td>
-          <td class="num">${t.gf}</td>
-          <td class="num">${t.ga}</td>
+          <td class="num mob-hide">${t.won}</td>
+          <td class="num mob-hide">${t.drawn}</td>
+          <td class="num mob-hide">${t.lost}</td>
+          <td class="num mob-hide">${t.gf}</td>
+          <td class="num mob-hide">${t.ga}</td>
           <td class="num">${t.gd >= 0 ? '+' : ''}${t.gd}</td>
           <td class="num pts-cell">${t.pts}</td>
         </tr>`).join('')}
