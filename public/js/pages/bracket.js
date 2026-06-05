@@ -1,4 +1,5 @@
 import { api } from '../api.js';
+import { flagImg } from './shared.js';
 
 export async function renderBracket(el) {
   // Only fetch knockout matches — 32 rows instead of 104
@@ -9,10 +10,10 @@ export async function renderBracket(el) {
     if (byStage[m.stage]) byStage[m.stage].push(m);
   }
 
-  function bracketTeam(name, flag, score, advancing) {
+  function bracketTeam(name, iso2, score, advancing) {
     return `<div class="bracket-team${advancing ? ' advancing' : ''}">
       <div class="bracket-team-left">
-        <span>${name ? (flag || '🏳️') : '🏳️'}</span>
+        ${name ? flagImg(iso2, name, 18) : `<span style="opacity:.3">🏳️</span>`}
         ${name ? `<span>${name}</span>` : `<span class="bracket-tbd">TBD</span>`}
       </div>
       <span class="bracket-score">${score ?? ''}</span>
@@ -26,8 +27,8 @@ export async function renderBracket(el) {
     const awayWins = completed && m.away_score !== null &&
       (m.away_score > m.home_score || (m.home_score === m.away_score && m.away_pens > m.home_pens));
     return `<div class="bracket-match${completed ? ' winner' : ''}">
-      ${bracketTeam(m.home_name, m.home_flag, m.home_score, homeWins)}
-      ${bracketTeam(m.away_name, m.away_flag, m.away_score, awayWins)}
+      ${bracketTeam(m.home_name, m.home_iso2, m.home_score, homeWins)}
+      ${bracketTeam(m.away_name, m.away_iso2, m.away_score, awayWins)}
     </div>`;
   }
 

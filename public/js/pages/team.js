@@ -1,5 +1,5 @@
 import { api } from '../api.js';
-import { matchCard } from './shared.js';
+import { matchCard, flagImg } from './shared.js';
 
 const posOrder = { GK: 0, DF: 1, MF: 2, FW: 3 };
 const posLabel  = { GK: 'Goalkeepers', DF: 'Defenders', MF: 'Midfielders', FW: 'Forwards' };
@@ -24,7 +24,7 @@ export async function renderTeam(el, { id }) {
     </div>
 
     <div class="team-hero">
-      <div class="team-hero-flag">${team.flag}</div>
+      <div class="team-hero-flag">${flagImg(team.iso2, team.name, 80)}</div>
       <div class="team-hero-info">
         <h1>${team.name} ${team.is_host ? '🏠' : ''}</h1>
         <div class="team-hero-meta">

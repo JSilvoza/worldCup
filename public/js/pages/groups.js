@@ -1,4 +1,5 @@
 import { api } from '../api.js';
+import { flagImg } from './shared.js';
 
 export async function renderGroups(el) {
   const groups = await api.groups.all();
@@ -18,7 +19,7 @@ export async function renderGroups(el) {
           <td class="num"><span class="pos-number">${i + 1}</span></td>
           <td>
             <div class="team-cell">
-              <span class="team-cell-flag">${t.flag}</span>
+              ${flagImg(t.iso2, t.name, 20)}
               <span>${t.name}</span>
             </div>
           </td>
@@ -43,10 +44,10 @@ export async function renderGroups(el) {
       <div class="group-header">
         <div>
           <div class="group-title">Group ${gid}</div>
-          <div class="group-subtitle">${g.map(t => t.code).join(' · ')}</div>
+          <div class="group-subtitle">${g.teams.map(t => t.code).join(' · ')}</div>
         </div>
       </div>
-      ${standingsTable(g)}
+      ${standingsTable(g.teams)}
     </div>`;
   }
 

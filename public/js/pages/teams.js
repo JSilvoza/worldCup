@@ -1,4 +1,5 @@
 import { api } from '../api.js';
+import { flagImg } from './shared.js';
 
 export async function renderTeams(el) {
   const teams = await api.teams.list();
@@ -22,7 +23,7 @@ export async function renderTeams(el) {
     return `<div class="teams-grid">
       ${ts.map(t => `
       <div class="team-card" onclick="location.hash='#/teams/${t.id}'">
-        <div class="team-card-flag">${t.flag}</div>
+        <div class="team-card-flag">${flagImg(t.iso2, t.name, 52)}</div>
         <div class="team-card-name">${t.name}</div>
         <div class="team-card-group">Group ${t.group_id}${t.is_host ? ' 🏠' : ''}</div>
         <div class="team-card-rank">#${t.fifa_rank} FIFA</div>

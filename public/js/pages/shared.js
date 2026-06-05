@@ -1,3 +1,10 @@
+const FLAG_CDN = 'https://flagcdn.com';
+
+export function flagImg(iso2, name = '', h = 24) {
+  if (!iso2) return `<span class="flag-placeholder">🏳️</span>`;
+  return `<img src="${FLAG_CDN}/w40/${iso2}.png" alt="${name}" class="flag-img" style="height:${h}px;width:auto;border-radius:2px;vertical-align:middle" loading="lazy">`;
+}
+
 export function formatDate(iso) {
   if (!iso) return '';
   const d = new Date(iso + 'T12:00:00');
@@ -35,7 +42,7 @@ export function matchCard(m) {
     </div>
     <div class="match-body">
       <div class="match-team home">
-        <span class="team-flag">${m.home_flag ?? '🏳️'}</span>
+        <span class="team-flag">${flagImg(m.home_iso2, m.home_name)}</span>
         <span class="team-name">${m.home_name ?? 'TBD'}</span>
         <span class="team-code">${m.home_code ?? '—'}</span>
       </div>
@@ -52,7 +59,7 @@ export function matchCard(m) {
         ${m.status === 'scheduled' ? `<div class="match-time-display">${m.match_time}</div>` : ''}
       </div>
       <div class="match-team away">
-        <span class="team-flag">${m.away_flag ?? '🏳️'}</span>
+        <span class="team-flag">${flagImg(m.away_iso2, m.away_name)}</span>
         <span class="team-name">${m.away_name ?? 'TBD'}</span>
         <span class="team-code">${m.away_code ?? '—'}</span>
       </div>

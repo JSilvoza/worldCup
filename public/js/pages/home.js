@@ -1,5 +1,5 @@
 import { api } from '../api.js';
-import { matchCard, formatDate } from './shared.js';
+import { matchCard, formatDate, flagImg } from './shared.js';
 
 const QUICK_LINKS = [
   { href: '#/groups',   icon: '📊', label: 'Group Standings',  sub: '12 groups · 48 teams'  },
@@ -78,7 +78,7 @@ export async function renderHome(el) {
               <tr>
                 <td class="rank-cell">${i + 1}</td>
                 <td><strong>${s.name}</strong></td>
-                <td>${s.team_flag} ${s.team_code}</td>
+                <td>${flagImg(s.team_iso2, s.team_name, 18)} ${s.team_code}</td>
                 <td><strong>${s.goals}</strong></td>
                 <td>${s.assists}</td>
               </tr>`).join('')}
