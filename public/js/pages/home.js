@@ -24,8 +24,12 @@ export async function renderHome(el) {
   } else if (summary.nextMatch) {
     const nextDate = summary.nextMatch.match_date;
     const nextDayMatches = allMatches.filter(m => m.match_date === nextDate);
-    const label = formatDate(nextDate);
-    featuredSection = { title: `Matches on ${label}`, matches: nextDayMatches };
+    const d = new Date(nextDate + 'T12:00:00');
+    const day  = d.toLocaleDateString('en-US', { weekday: 'long' });
+    const mon  = d.toLocaleDateString('en-US', { month: 'long' });
+    const num  = d.getDate();
+    const ord  = num === 1 || num === 21 || num === 31 ? 'st' : num === 2 || num === 22 ? 'nd' : num === 3 || num === 23 ? 'rd' : 'th';
+    featuredSection = { title: `First Match Begins ${day}, ${mon} ${num}${ord}`, matches: nextDayMatches };
   }
 
   el.innerHTML = `
