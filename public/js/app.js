@@ -31,6 +31,7 @@ function getRoute() {
 async function navigate() {
   const { render, params } = getRoute();
   setActive();
+  window.scrollTo({ top: 0, behavior: 'instant' });
   appEl.innerHTML = '<div class="loading-state"><div class="spinner"></div><p>Loading…</p></div>';
   try {
     await render(appEl, params);

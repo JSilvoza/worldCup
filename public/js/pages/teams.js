@@ -2,7 +2,7 @@ import { api } from '../api.js';
 import { flagImg } from './shared.js';
 
 export async function renderTeams(el) {
-  const teams = await api.teams.list();
+  const teams = (await api.teams.list()).sort((a, b) => a.name.localeCompare(b.name));
   const groups = [...new Set(teams.map(t => t.group_id).filter(Boolean))].sort();
   const confs  = [...new Set(teams.map(t => t.confederation))].sort();
 
