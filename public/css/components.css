@@ -119,7 +119,9 @@
 .standings-table .pos-3 td:first-child { border-left: 3px solid var(--gold); }
 .standings-table .pos-number { color: var(--text-dim); width: 24px; text-align: center; display: inline-block; }
 
-.team-cell { display: flex; align-items: center; gap: .6rem; }
+.team-cell { display: flex; align-items: center; gap: .5rem; min-width: 0; }
+.team-cell .flag-img { flex-shrink: 0; width: 22px; height: 15px; object-fit: cover; border-radius: 2px; }
+.team-cell span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .team-cell-flag { font-size: 1.2rem; }
 
 .pts-cell { font-weight: 700; color: var(--text); }

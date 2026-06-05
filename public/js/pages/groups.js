@@ -19,7 +19,7 @@ export async function renderGroups(el) {
           <td class="num"><span class="pos-number">${i + 1}</span></td>
           <td>
             <div class="team-cell">
-              ${flagImg(t.iso2, t.name, 20)}
+              ${flagImg(t.iso2, t.name, 15)}
               <span>${t.name}</span>
             </div>
           </td>
