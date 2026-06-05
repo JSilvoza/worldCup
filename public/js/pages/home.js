@@ -35,7 +35,7 @@ export async function renderHome(el) {
   el.innerHTML = `
     <div class="hero-banner">
       <h1>FIFA World Cup 2026</h1>
-      <p>The greatest show on earth — hosted across 16 cities in the USA, Canada & Mexico</p>
+      <p>The greatest show on Earth — hosted across 16 cities in the USA, Canada & Mexico</p>
       <div class="hero-dates">📅 June 11 – July 19, 2026</div>
       <div id="hero-countdown" class="hero-countdown"></div>
     </div>
