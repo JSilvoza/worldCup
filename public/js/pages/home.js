@@ -97,7 +97,25 @@ export async function renderHome(el) {
           </table>
         </div>` : `
         <div class="empty-state">
-          <div class="empty-state-icon"><img src="favicon.svg" style="height:2.5rem;width:2.5rem" alt="" /></div>
+          <div class="empty-state-icon">
+            <svg viewBox="0 0 80 80" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="ballGrad" cx="38%" cy="32%" r="65%">
+                  <stop offset="0%" stop-color="#1e3460"/>
+                  <stop offset="100%" stop-color="#090f1e"/>
+                </radialGradient>
+              </defs>
+              <circle cx="40" cy="40" r="37" fill="url(#ballGrad)" stroke="rgba(34,211,238,.25)" stroke-width="1.5"/>
+              <polygon points="40,21 52,30 48,44 32,44 28,30" fill="rgba(255,255,255,.82)"/>
+              <polygon points="52,30 65,25 68,39 56,46 48,44" fill="rgba(255,255,255,.82)"/>
+              <polygon points="56,46 68,39 70,54 58,61 51,55" fill="rgba(255,255,255,.82)"/>
+              <polygon points="46,59 51,55 58,61 53,71 40,69" fill="rgba(255,255,255,.82)"/>
+              <polygon points="34,59 40,69 27,71 22,61 29,55" fill="rgba(255,255,255,.82)"/>
+              <polygon points="24,46 29,55 22,61 12,54 12,39" fill="rgba(255,255,255,.82)"/>
+              <polygon points="28,30 32,44 24,46 12,39 15,25" fill="rgba(255,255,255,.82)"/>
+              <circle cx="40" cy="40" r="37" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+            </svg>
+          </div>
           <div class="empty-state-title">No goals yet</div>
           <div class="empty-state-sub">Check back when the tournament begins</div>
         </div>`}
