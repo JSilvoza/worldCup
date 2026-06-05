@@ -58,7 +58,7 @@ export async function renderBracket(el) {
         <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem">
           ${byStage.final[0] ? `
           <div>
-            <div style="text-align:center;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:.5rem">⚽ Final</div>
+            <div style="text-align:center;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:.5rem"><img src="favicon.svg" style="height:14px;width:14px;vertical-align:middle;margin-right:.3rem" alt="" />Final</div>
             ${bracketMatch(byStage.final[0])}
           </div>` : ''}
           ${byStage['3rd'][0] ? `
