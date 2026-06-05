@@ -4,7 +4,7 @@
 const cache = {};
 async function load(file) {
   if (cache[file]) return cache[file];
-  const res = await fetch(new URL(`./data/${file}`, import.meta.url));
+  const res = await fetch(new URL(`../data/${file}`, import.meta.url));
   if (!res.ok) throw new Error(`Failed to load ${file}`);
   cache[file] = await res.json();
   return cache[file];
