@@ -312,6 +312,9 @@
 }
 .hero-countdown {
   margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .countdown-label {
   font-size: .7rem;
