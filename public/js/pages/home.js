@@ -27,6 +27,7 @@ export async function renderHome(el) {
       <h1>FIFA World Cup 2026</h1>
       <p>The greatest show on earth — hosted across 16 cities in the USA, Canada & Mexico</p>
       <div class="hero-dates">📅 June 11 – July 19, 2026</div>
+      <div id="hero-countdown" class="hero-countdown"></div>
     </div>
 
     <div class="stats-row">
@@ -109,4 +110,37 @@ export async function renderHome(el) {
       </div>
     </div>
   `;
+
+  // Countdown to kickoff: June 11 2026 19:00 UTC (Mexico City opener)
+  const KICKOFF = new Date('2026-06-11T19:00:00Z');
+  const countdownEl = el.querySelector('#hero-countdown');
+
+  function renderCountdown() {
+    const diff = KICKOFF - Date.now();
+    if (diff <= 0) {
+      countdownEl.innerHTML = `<span class="countdown-live">🔴 Tournament is live!</span>`;
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    countdownEl.innerHTML = `
+      <div class="countdown-label">Kickoff in</div>
+      <div class="countdown-units">
+        <div class="countdown-unit"><span class="countdown-val">${d}</span><span class="countdown-name">days</span></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit"><span class="countdown-val">${String(h).padStart(2,'0')}</span><span class="countdown-name">hrs</span></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit"><span class="countdown-val">${String(m).padStart(2,'0')}</span><span class="countdown-name">min</span></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit"><span class="countdown-val">${String(s).padStart(2,'0')}</span><span class="countdown-name">sec</span></div>
+      </div>`;
+  }
+
+  renderCountdown();
+  const _timer = setInterval(() => {
+    if (!document.contains(countdownEl)) { clearInterval(_timer); return; }
+    renderCountdown();
+  }, 1000);
 }

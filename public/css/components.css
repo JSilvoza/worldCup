@@ -310,6 +310,58 @@
   margin-top: 1rem;
   color: var(--gold);
 }
+.hero-countdown {
+  margin-top: 1.25rem;
+}
+.countdown-label {
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--text-muted);
+  margin-bottom: .5rem;
+}
+.countdown-units {
+  display: flex;
+  align-items: flex-end;
+  gap: .25rem;
+}
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255,255,255,.07);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .4rem .75rem;
+  min-width: 3rem;
+}
+.countdown-val {
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.03em;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.countdown-name {
+  font-size: .6rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--text-muted);
+  margin-top: .2rem;
+}
+.countdown-sep {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  padding-bottom: .5rem;
+}
+.countdown-live {
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--live, #ef4444);
+}
 
 .stats-row {
   display: grid;
