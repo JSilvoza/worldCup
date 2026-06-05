@@ -6,7 +6,7 @@ import { TEAMS, MATCHES, PLAYERS } from './data.js';
 function buildStandings(teams, completedMatches) {
   const teamMap = {}, groups = {};
   for (const t of teams) {
-    const e = { id:t.id, name:t.name, code:t.code, flag:t.flag,
+    const e = { id:t.id, name:t.name, code:t.code, flag:t.flag, iso2:t.iso2,
       played:0, won:0, drawn:0, lost:0, gf:0, ga:0, gd:0, pts:0 };
     teamMap[t.id] = e;
     if (!groups[t.group_id]) groups[t.group_id] = [];
