@@ -9,18 +9,24 @@ const QUICK_LINKS = [
 ];
 
 export async function renderHome(el) {
-  const [summary, scorers, todayMatches] = await Promise.all([
+  const [summary, scorers, todayMatches, allMatches] = await Promise.all([
     api.stats.summary(),
     api.stats.scorers(),
     api.matches.today(),
+    api.matches.list({ status: 'scheduled' }),
   ]);
 
   const topScorers = scorers.slice(0, 5);
-  const featuredSection = todayMatches.length > 0
-    ? { title: "Today's Matches", matches: todayMatches }
-    : summary.nextMatch
-      ? { title: 'Next Match', matches: [summary.nextMatch] }
-      : null;
+
+  let featuredSection = null;
+  if (todayMatches.length > 0) {
+    featuredSection = { title: "Today's Matches", matches: todayMatches };
+  } else if (summary.nextMatch) {
+    const nextDate = summary.nextMatch.match_date;
+    const nextDayMatches = allMatches.filter(m => m.match_date === nextDate);
+    const label = formatDate(nextDate);
+    featuredSection = { title: `Matches on ${label}`, matches: nextDayMatches };
+  }
 
   el.innerHTML = `
     <div class="hero-banner">
