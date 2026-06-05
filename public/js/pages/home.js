@@ -97,7 +97,7 @@ export async function renderHome(el) {
           </table>
         </div>` : `
         <div class="empty-state">
-          <div class="empty-state-icon">⚽</div>
+          <div class="empty-state-icon"><img src="favicon.svg" style="height:2.5rem;width:2.5rem" alt="" /></div>
           <div class="empty-state-title">No goals yet</div>
           <div class="empty-state-sub">Check back when the tournament begins</div>
         </div>`}

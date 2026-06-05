@@ -79,7 +79,7 @@ main { flex: 1; padding: 2rem 1.5rem; max-width: 1280px; margin: 0 auto; width: 
   gap: 1rem;
 }
 .logo { display: flex; align-items: center; gap: .7rem; white-space: nowrap; }
-.logo-icon { font-size: 1.4rem; }
+.logo-icon { width: 32px; height: 32px; flex-shrink: 0; }
 .logo-text { display: flex; flex-direction: column; line-height: 1.15; }
 .logo-title {
   font-family: var(--font-display);
